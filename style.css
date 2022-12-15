@@ -1,0 +1,79 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Mono", monospace;
+}
+.container {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+#batteryIndicator {
+  box-sizing: content-box;
+  height: 7.8em;
+  width: 17.5em;
+  border: 0.6em solid #246aed;
+  margin: auto;
+  border-radius: 0.6em;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+#batteryIndicator:before {
+  position: absolute;
+  content: "";
+  height: 5em;
+  width: 1.1em;
+  background-color: #246aed;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: -1.6em;
+  border-radius: 0 0.3em 0.3em 0;
+}
+#charge {
+  position: absolute;
+  height: 6.5em;
+  width: 16.25em;
+  background-color: #246aed;
+  top: 0.6em;
+  left: 0.6em;
+}
+#charge-level {
+  position: absolute;
+  font-size: 2.5em;
+  font-weight: 200;
+}
+
+.active {
+  animation: charge-animation 3s infinite linear;
+}
+@keyframes charge-animation {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 16em;
+  }
+}
+@media (max-width: 375px) and (min-width: 0px) {
+  #icon {
+    background-image: url("mobile.png");
+    width: 5em;
+    height: 5em;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+@media (min-width: 376px) {
+  #icon {
+    background-image: url("laptop.png");
+    width: 10em;
+    height: 10em;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
